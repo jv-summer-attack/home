@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Coach - JV Attack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #2a2a2a;
+      color: #eee;
+      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .coach-container {
+      max-width: 400px;
+      background: #3a3a3a;
+      border-radius: 12px;
+      padding: 30px 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .coach-image {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 12px rgba(255 111 0 / 0.7);
+    }
+
+    .coach-name {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ff6f00;
+      margin: 0;
+    }
+
+    .coach-role {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin: 0;
+      font-style: italic;
+    }
+
+    @media (max-width: 480px) {
+      .coach-container {
+        max-width: 90%;
+        padding: 20px 15px;
+      }
+      .coach-image {
+        width: 120px;
+        height: 120px;
+      }
+      .coach-name {
+        font-size: 1.5rem;
+      }
+      .coach-role {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="coach-container">
+    <img
+      src="https://image.prod.sportsyou.com/Users/90899B9F-12BE-4465-8A2C-1684E302806C/uploads/20230322190926313-590006.png/profileImage.jpg"
+      alt="Chris Redman"
+      class="coach-image"
+    />
+    <h1 class="coach-name">Chris Redman</h1>
+    <p class="coach-role">Coach</p>
+  </div>
+</body>
+</html>
