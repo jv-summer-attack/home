@@ -35,7 +35,7 @@
     }
 
     .socials-container {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 80px 20px;
       text-align: center;
@@ -50,9 +50,10 @@
     .socials-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
+      gap: 30px;
       padding: 0 20px;
       justify-items: center;
+      margin-bottom: 30px;
     }
 
     .social-card {
@@ -67,6 +68,7 @@
       align-items: center;
       width: 180px;
       box-sizing: border-box;
+      position: relative;
     }
 
     .social-card:hover {
@@ -75,30 +77,80 @@
     }
 
     .social-icon {
-      width: 50px;
-      height: 50px;
-      margin-bottom: 15px;
+      width: 60px;
+      height: 60px;
+      margin-bottom: 20px;
       object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
     }
 
     .social-name {
       font-size: 1.1rem;
       font-weight: bold;
       margin: 0;
+      color: #ff6f00;
     }
 
     .social-handle {
       color: #ccc;
       font-size: 0.9rem;
-      margin-top: 4px;
+      margin-top: 8px;
       word-break: break-word;
     }
 
-    /* Instagram centering */
+    /* Instagram included in grid */
     .instagram-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
+      display: contents; /* Makes it part of the grid */
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .socials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      
+      .social-card {
+        width: 100%;
+        max-width: 160px;
+        padding: 20px;
+      }
+      
+      .social-icon {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+      }
+      
+      .socials-grid {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      
+      .social-card {
+        max-width: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 15px;
+        text-align: left;
+      }
+      
+      .social-icon {
+        margin: 0 15px 0 0;
+        width: 40px;
+        height: 40px;
+      }
+      
+      .social-name {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -108,38 +160,36 @@
   <div class="socials-container">
     <h1>Follow Us</h1>
 
-    <!-- Main social media buttons -->
+    <!-- All social media buttons in single grid -->
     <div class="socials-grid">
       <!-- Official Website -->
       <a href="https://www.attackhockeyclub.org/" class="social-card" target="_blank" rel="noopener noreferrer">
         <img src="https://firebasestorage.googleapis.com/v0/b/optimx-sports.appspot.com/o/teams%2FTL3m1rWEmoWTeG1WukS29CBHa6U2%2FteamLogo_silhouette_196_1600x900.png?alt=media&token=c3896966-e231-403d-a94e-38ee1c1d31e0" alt="Official Website" class="social-icon" />
-        Official Website
+        <div class="social-name">Official Website</div>
       </a>
 
       <!-- YouTube -->
       <a href="https://www.youtube.com/@AttackHockeytx" class="social-card" target="_blank" rel="noopener noreferrer">
         <img src="https://cdn-icons-png.flaticon.com/512/174/174883.png" alt="YouTube" class="social-icon" />
-        YouTube
+        <div class="social-name">YouTube</div>
       </a>
 
       <!-- TikTok -->
       <a href="https://www.tiktok.com/@attackhockeytx" class="social-card" target="_blank" rel="noopener noreferrer">
         <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" class="social-icon" />
-        TikTok
+        <div class="social-name">TikTok</div>
       </a>
 
       <!-- Facebook -->
       <a href="https://www.facebook.com/AttackHockey/" class="social-card" target="_blank" rel="noopener noreferrer">
         <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" class="social-icon" />
-        Facebook
+        <div class="social-name">Facebook</div>
       </a>
-    </div>
 
-    <!-- Centered Instagram button -->
-    <div class="instagram-container">
+      <!-- Instagram -->
       <a href="https://www.instagram.com/attackhockeytx/" class="social-card" target="_blank" rel="noopener noreferrer">
         <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="social-icon" />
-        Instagram
+        <div class="social-name">Instagram</div>
       </a>
     </div>
   </div>
