@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Socials - JV Attack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* Core styles matching other pages */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #2a2a2a;
+      color: #eee;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #ff6f00;
+      color: #111;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.2s;
+      z-index: 10;
+    }
+
+    .back-btn:hover {
+      background: #ffa000;
+      transform: translateY(-2px);
+    }
+
+    .socials-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: orange;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+    }
+
+    .socials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+      justify-items: center;
+    }
+
+    .social-card {
+      background: #3a3a3a;
+      padding: 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #eee;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 180px;
+      box-sizing: border-box;
+    }
+
+    .social-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .social-icon {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 15px;
+      object-fit: contain;
+    }
+
+    .social-name {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .social-handle {
+      color: #ccc;
+      font-size: 0.9rem;
+      margin-top: 4px;
+      word-break: break-word;
+    }
+
+    /* Instagram centering */
+    .instagram-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-btn">← Back</a>
+
+  <div class="socials-container">
+    <h1>Follow Us</h1>
+
+    <!-- Main social media buttons -->
+    <div class="socials-grid">
+      <!-- Official Website -->
+      <a href="https://www.attackhockeyclub.org/" class="social-card" target="_blank" rel="noopener noreferrer">
+        <img src="https://firebasestorage.googleapis.com/v0/b/optimx-sports.appspot.com/o/teams%2FTL3m1rWEmoWTeG1WukS29CBHa6U2%2FteamLogo_silhouette_196_1600x900.png?alt=media&token=c3896966-e231-403d-a94e-38ee1c1d31e0" alt="Official Website" class="social-icon" />
+        Official Website
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@AttackHockeytx" class="social-card" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174883.png" alt="YouTube" class="social-icon" />
+        YouTube
+      </a>
+
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@attackhockeytx" class="social-card" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" class="social-icon" />
+        TikTok
+      </a>
+
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/AttackHockey/" class="social-card" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" class="social-icon" />
+        Facebook
+      </a>
+    </div>
+
+    <!-- Centered Instagram button -->
+    <div class="instagram-container">
+      <a href="https://www.instagram.com/attackhockeytx/" class="social-card" target="_blank" rel="noopener noreferrer">
+        <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram" class="social-icon" />
+        Instagram
+      </a>
+    </div>
+  </div>
+</body>
+</html>
