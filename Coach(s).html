@@ -5,6 +5,26 @@
   <title>Coach - JV Attack</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
+    /* Add back button styles */
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #ff6f00;
+      color: #111;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.2s;
+      z-index: 10;
+    }
+
+    .back-btn:hover {
+      background: #ffa000;
+      transform: translateY(-2px);
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -18,6 +38,7 @@
       flex-direction: column;
       text-align: center;
       padding: 40px 20px;
+      position: relative; /* Required for absolute positioning */
     }
 
     .coach-container {
@@ -73,6 +94,9 @@
   </style>
 </head>
 <body>
+  <!-- Back Button -->
+  <a href="#" class="back-btn" onclick="goBack()">← Back</a>
+
   <div class="coach-container">
     <img
       src="https://lh3.googleusercontent.com/pw/AP1GczMI47dZwXFxcx3GuLToeaqbtYtrwB2rzrfbELbd7pcuw7j5bbNLxvsIt0Dj7rcNXwI9DRVB3XvaSGPx5grgNJMfPBzac5W24fxzwPlI1y2Me62azTljRZ-ZTx6iPemcSZRULm_sZEmvTLopiq2D0MA=w140-h140-s-no-gm"
@@ -82,5 +106,12 @@
     <h1 class="coach-name">Chris Redman</h1>
     <p class="coach-role">Coach</p>
   </div>
+
+  <script>
+    // JavaScript function to handle back navigation
+    function goBack() {
+      window.history.back();
+    }
+  </script>
 </body>
 </html>
