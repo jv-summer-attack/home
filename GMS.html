@@ -2,21 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Games - JV Attack</title>
+  <title>Upcoming Games - JV Attack</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/NHL_Logo_former.svg/247px-NHL_Logo_former.svg.png">
+  <link rel="icon" type="image/png" href="https://images.vexels.com/media/users/3/138101/isolated/preview/687ea33bc22348e5bc3b02b510924f5b-hockey-player.png" />
   <style>
     html, body {
       height: 100%;
       margin: 0;
       padding: 0;
-      background-color: #2a2a2a; /* consistent dark grey background */
+      background-color: #2a2a2a;
       color: #eee;
       font-family: Arial, Helvetica, sans-serif;
-      display: flex;
-      flex-direction: column;
     }
-
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    h1 {
+      color: orange;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.2rem;
+    }
     .back-btn {
       position: absolute;
       top: 20px;
@@ -28,43 +36,63 @@
       text-decoration: none;
       font-weight: bold;
       transition: all 0.2s;
-      z-index: 10;
     }
-
     .back-btn:hover {
       background: #ffa000;
       transform: translateY(-2px);
     }
-
-    .content {
-      flex: 1;
+    /* Game card styles */
+    .game-card {
+      background: #3a3a3a;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      padding: 25px 30px;
+      margin: 20px 0;
+      cursor: pointer;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 0 20px;
+      justify-content: space-between;
+      transition: background-color 0.3s, transform 0.2s;
+      /* Make it elongated but not touching edges */
+      width: calc(100% - 40px);
+      margin-left: 20px;
+      margin-right: 20px;
     }
-
-    .main-text {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #ff6f00;
-      margin-bottom: 12px;
+    .game-card:hover {
+      background-color: #ff6f00;
+      color: #111;
+      transform: translateY(-3px);
     }
-
-    .sub-text {
-      font-size: 1.3rem;
-      color: #ccc;
+    .game-info {
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+    .game-date {
+      font-weight: 400;
+      opacity: 0.8;
+      font-size: 1rem;
     }
   </style>
 </head>
 <body>
   <a href="index.html" class="back-btn">← Back</a>
 
-  <div class="content">
-    <div class="main-text">No Games Yet..</div>
-    <div class="sub-text">Check Back On May 4th</div>
+  <div class="container">
+    <h1>Upcoming Games</h1>
+
+    <div class="game-card" onclick="location.href='gamelookup.html'">
+      <div>
+        <div class="game-info">Mansfield Morrow Rink</div>
+        <div class="game-date">Sun, May 11 1:30 PM</div>
+      </div>
+    </div>
+
+    <div class="game-card" onclick="location.href='gamelookup.html'">
+      <div>
+        <div class="game-info">Mansfield Morrow Rink</div>
+        <div class="game-date">Sun, May 11 4:30 PM</div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
