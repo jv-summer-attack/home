@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Game Lookup - JV Attack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="https://images.vexels.com/media/users/3/138101/isolated/preview/687ea33bc22348e5bc3b02b510924f5b-hockey-player.png" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: #2a2a2a;
+      color: #eee;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #3a3a3a;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+    h1 {
+      color: orange;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #ff6f00;
+      color: #111;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.2s;
+    }
+    .back-btn:hover {
+      background: #ffa000;
+      transform: translateY(-2px);
+    }
+    .game-detail {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    .label {
+      font-weight: bold;
+      color: orange;
+    }
+    .notice {
+      font-style: italic;
+      color: #ccc;
+      margin-top: 6px;
+    }
+    .special-message {
+      font-size: 1.3rem;
+      font-style: italic;
+      color: #ff6f00;
+      margin-top: 40px;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-btn">← Back</a>
+
+  <div class="container" id="content">
+    <!-- Content will be injected by JS -->
+  </div>
+
+  <script>
+    const games = {
+      "1": {
+        title: "Game 1 (1:30)",
+        score: "0 - 0",
+        players: "Game not started... Wait for the game to end before results.",
+        startTime: "1:30",
+        endTime: "Game not started... Wait for the game to end before results.",
+        place: "Mansfield - MA - Morrow Rink"
+      },
+      "2": {
+        title: "Game 2 (4:30)",
+        score: "0 - 0",
+        players: "Game not started... Wait for the game to end before results.",
+        startTime: "4:30",
+        endTime: "Game not started... Wait for the game to end before results.",
+        place: "Mansfield - MA - Morrow Rink"
+      }
+    };
+
+    function getQueryParam(param) {
+      const params = new URLSearchParams(window.location.search);
+      return params.has(param) ? params.get(param) : null;
+    }
+
+    function showGameDetails(game) {
+      return `
+        <h1>${game.title}</h1>
+        <div class="game-detail"><span class="label">Score:</span> ${game.score}</div>
+        <div class="game-detail"><span class="label">Players:</span> ${game.players}</div>
+        <div class="game-detail"><span class="label">Time it started:</span> ${game.startTime}</div>
+        <div class="game-detail"><span class="label">Time it ended:</span> ${game.endTime}</div>
+        <div class="game-detail"><span class="label">Place:</span> ${game.place}</div>
+      `;
+    }
+
+    function showSpecialMessage() {
+      return `
+        <h1>Wait... HOW'D YOU GET HERE?!</h1>
+        <div class="special-message">-Nick Blackledge</div>
+      `;
+    }
+
+    function init() {
+      const contentDiv = document.getElementById('content');
+      const gameId = getQueryParam('game');
+
+      if (!gameId) {
+        // No game param present
+        contentDiv.innerHTML = showSpecialMessage();
+        return;
+      }
+
+      const game = games[gameId];
+      if (!game) {
+        contentDiv.innerHTML = `
+          <h1>Game Not Found</h1>
+          <div class="game-detail">Sorry, the game you requested does not exist.</div>
+        `;
+        return;
+      }
+
+      contentDiv.innerHTML = showGameDetails(game);
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>
