@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Coach - JV Attack</title>
+  <title>Coaches - JV Attack</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/png" href="https://png.pngtree.com/png-clipart/20230823/original/pngtree-grey-whistle-icon-realistic-vector-picture-image_8305419.png">
   <style>
-    /* Add back button styles */
     .back-btn {
       position: absolute;
       top: 20px;
@@ -20,12 +19,10 @@
       transition: all 0.2s;
       z-index: 10;
     }
-
     .back-btn:hover {
       background: #ffa000;
       transform: translateY(-2px);
     }
-
     body {
       margin: 0;
       padding: 0;
@@ -39,11 +36,16 @@
       flex-direction: column;
       text-align: center;
       padding: 40px 20px;
-      position: relative; /* Required for absolute positioning */
+      position: relative;
     }
-
-    .coach-container {
+    .coach-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      width: 100%;
       max-width: 400px;
+    }
+    .coach-container {
       background: #3a3a3a;
       border-radius: 12px;
       padding: 30px 20px;
@@ -53,40 +55,53 @@
       align-items: center;
       gap: 20px;
     }
-
-    .coach-image {
-      width: 160px;
-      height: 160px;
+    .coach-initials {
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 0 12px rgba(255 111 0 / 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      font-weight: bold;
+      color: #fff;
+      margin-bottom: 8px;
+      box-shadow: 0 0 12px rgba(255,111,0,0.3);
+      user-select: none;
     }
-
+    .coach-green {
+      background: #2ecc40;
+    }
+    .coach-red {
+      background: #e74c3c;
+    }
     .coach-name {
       font-size: 1.8rem;
       font-weight: bold;
       color: #ff6f00;
       margin: 0;
     }
-
     .coach-role {
       font-size: 1.1rem;
       color: #ccc;
       margin: 0;
       font-style: italic;
     }
-
     @media (max-width: 480px) {
-      .coach-container {
-        max-width: 90%;
-        padding: 20px 15px;
+      .coach-list {
+        max-width: 98vw;
+        gap: 18px;
       }
-      .coach-image {
-        width: 120px;
-        height: 120px;
+      .coach-container {
+        padding: 18px 8px;
+      }
+      .coach-initials {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
       }
       .coach-name {
-        font-size: 1.5rem;
+        font-size: 1.15rem;
       }
       .coach-role {
         font-size: 1rem;
@@ -95,21 +110,20 @@
   </style>
 </head>
 <body>
-  <!-- Back Button -->
-  <a href="#" class="back-btn" onclick="goBack()">← Back</a>
-
-  <div class="coach-container">
-    <img
-      src="https://lh3.googleusercontent.com/pw/AP1GczMI47dZwXFxcx3GuLToeaqbtYtrwB2rzrfbELbd7pcuw7j5bbNLxvsIt0Dj7rcNXwI9DRVB3XvaSGPx5grgNJMfPBzac5W24fxzwPlI1y2Me62azTljRZ-ZTx6iPemcSZRULm_sZEmvTLopiq2D0MA=w140-h140-s-no-gm"
-      alt="Chris Redman"
-      class="coach-image"
-    />
-    <h1 class="coach-name">Chris Redman</h1>
-    <p class="coach-role">Coach</p>
+  <a href="index.html" class="back-btn" onclick="goBack()">← Back</a>
+  <div class="coach-list">
+    <div class="coach-container">
+      <div class="coach-initials coach-green">TT</div>
+      <h1 class="coach-name">Tim Tracy</h1>
+      <p class="coach-role">coach</p>
+    </div>
+    <div class="coach-container">
+      <div class="coach-initials coach-red">JA</div>
+      <h1 class="coach-name">Jesse Anderson</h1>
+      <p class="coach-role">coach</p>
+    </div>
   </div>
-
   <script>
-    // JavaScript function to handle back navigation
     function goBack() {
       window.history.back();
     }
