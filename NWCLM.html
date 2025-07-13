@@ -1,157 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>NWC - Nick's Website Creations</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="https://static-00.iconduck.com/assets.00/terminal-icon-2048x1805-vu7uszib.png">
+  <meta charset="UTF-8" />
+  <title>Kayla & Dustin Wedding RSVP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      background-color: #2a2a2a;
-      color: #eee;
-      font-family: Arial, Helvetica, sans-serif;
+      background: #fafafa;
+      font-family: 'Georgia', serif;
+      color: #333;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .back-btn {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background: #ff6f00;
-      color: #111;
-      padding: 8px 16px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.2s;
-      z-index: 10;
-    }
-
-    .back-btn:hover {
-      background: #ffa000;
-      transform: translateY(-2px);
-    }
-
-    .header {
-      text-align: center;
-      padding: 40px 20px 20px;
+      overflow-x: hidden;
       position: relative;
     }
-
-    .main-title {
+    .floating-emoji {
+      position: absolute;
       font-size: 2.5rem;
-      color: #ff6f00;
-      margin: 0;
+      opacity: 0.15;
+      pointer-events: none;
+      user-select: none;
+      color: #bfae7f;
+      will-change: transform;
+      z-index: 0;
+      transition: transform 0.3s ease;
     }
-
-    .sub-title {
-      color: #ccc;
+    .header {
+      text-align: center;
+      margin: 48px 0 12px;
+      font-size: 3rem;
+      font-family: 'Georgia', serif;
+      font-weight: 700;
+      color: #bfae7f;
+      letter-spacing: 3px;
+      text-shadow: 1px 1px 3px rgba(191, 174, 127, 0.6);
+      position: relative;
+      z-index: 2;
+    }
+    .desc {
+      max-width: 600px;
+      margin: 0 auto 40px;
       font-size: 1.2rem;
-      margin-top: 8px;
+      line-height: 1.5;
+      text-align: center;
+      color: #555;
+      position: relative;
+      z-index: 2;
     }
-
-    .content-container {
-      flex: 1;
+    .rsvp-before {
+      text-align: center;
+      font-size: 1.15rem;
+      color: #8c7f4f;
+      font-weight: 600;
+      margin-bottom: 6px;
+      position: relative;
+      z-index: 2;
+      letter-spacing: 1.2px;
+    }
+    .countdown-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 0 20px;
-      max-width: 800px;
-      margin: 0 auto;
+      margin-bottom: 36px;
+      position: relative;
+      z-index: 2;
+    }
+    .countdown {
+      display: flex;
+      gap: 20px;
+      font-size: 1.3rem;
+      color: #8c7f4f;
+      font-weight: 600;
+      background: #f5f1e9;
+      border-radius: 12px;
+      padding: 12px 28px;
+      box-shadow: 0 3px 10px rgba(191, 174, 127, 0.3);
+      user-select: none;
+    }
+    .countdown span {
+      min-width: 55px;
       text-align: center;
+      font-variant-numeric: tabular-nums;
     }
-
-    .description {
-      line-height: 1.8;
-      color: #ddd;
-      margin: 20px 0;
-      padding: 0 20px;
-      font-size: 1rem;
-      white-space: pre-line;
+    .form-container {
+      background: #fff;
+      max-width: 460px;
+      margin: 0 auto 60px;
+      padding: 36px 32px 28px;
+      border-radius: 14px;
+      box-shadow: 0 6px 20px rgba(191, 174, 127, 0.2);
+      position: relative;
+      z-index: 2;
+      font-family: 'Georgia', serif;
     }
-
-    .contact-section {
-      margin: 40px 0;
-      padding: 20px;
-      background: #3a3a3a;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    input, textarea {
+      padding: 14px 16px;
+      border: 1px solid #c9b87a;
       border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Georgia', serif;
+      background: #faf7f0;
+      color: #4a4633;
+      transition: border-color 0.3s ease;
+      resize: vertical;
+    }
+    input:focus, textarea:focus {
+      border-color: #8c7f4f;
+      outline: none;
+      background: #fff;
+    }
+    button[type="submit"] {
+      background: linear-gradient(90deg, #bfae7f, #d9cfa8);
+      color: #4a4633;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 1.15rem;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(191, 174, 127, 0.4);
+      transition: background 0.3s ease, color 0.3s ease;
+      user-select: none;
+    }
+    button[type="submit"]:hover, button[type="submit"]:focus {
+      background: linear-gradient(90deg, #d9cfa8, #bfae7f);
+      color: #6b633d;
+    }
+    .submit-message {
+      text-align: center;
+      font-size: 1.15rem;
+      color: #6b633d;
+      font-weight: 600;
+      margin-top: 16px;
+      font-style: italic;
+      user-select: none;
+    }
+    /* Promotional Section (Flat, Divider, Text Links, Smaller) */
+    .promo-divider {
       width: 100%;
       max-width: 600px;
+      margin: 80px auto 0 auto;
+      border: none;
+      border-top: 1.5px solid #e0d6b8;
     }
-
-    .gmail-btn {
-      background: #d44638;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 6px;
-      text-decoration: none;
+    .promo-flat {
+      max-width: 600px;
+      margin: 18px auto 40px auto;
+      padding: 0 10px;
+      font-family: 'Georgia', serif;
+      color: #6b633d;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+      font-size: 0.92rem; /* Smaller overall section */
+    }
+    .promo-flat-title {
+      font-size: 0.95rem; /* Smaller title */
       font-weight: bold;
-      transition: all 0.3s;
-      display: inline-block;
-      margin-top: 20px;
+      margin-bottom: 0;
     }
-
-    .gmail-btn:hover {
-      background: #e74c3c;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    .promo-flat-desc {
+      font-size: 0.9rem; /* Smaller desc */
+      margin-bottom: 0;
+      margin-top: 0;
     }
-
+    .promo-flat-row {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+    }
+    .promo-link {
+      color: #2566cc;
+      background: none;
+      border: none;
+      font-size: 0.9rem; /* Smaller links */
+      font-family: 'Georgia', serif;
+      font-weight: 600;
+      text-decoration: underline;
+      cursor: pointer;
+      padding: 0;
+      margin: 0 10px 0 0;
+      transition: color 0.2s;
+      outline: none;
+    }
+    .promo-link:last-child {
+      margin-right: 0;
+    }
+    .promo-link:hover, .promo-link:focus {
+      color: #17408b;
+      text-decoration: underline;
+    }
     @media (max-width: 600px) {
-      .main-title {
-        font-size: 2rem;
+      .promo-divider, .promo-flat {
+        max-width: 97vw;
       }
-      .description {
-        font-size: 0.95rem;
+      .promo-flat-title {
+        font-size: 0.92rem;
+      }
+      .promo-flat-desc, .promo-link {
+        font-size: 0.88rem;
+      }
+      .promo-flat-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Back Button -->
-  <a href="#" class="back-btn" onclick="goBack()">← Back</a>
+  <!-- Floating emojis -->
+  <div class="floating-emoji">💍</div>
+  <div class="floating-emoji">💒</div>
+  <div class="floating-emoji">💐</div>
+  <div class="floating-emoji">🎉</div>
+  <div class="floating-emoji">👰</div>
+  <div class="floating-emoji">🤵</div>
+  <div class="floating-emoji">🌸</div>
+  <div class="floating-emoji">🥂</div>
 
-  <div class="header">
-    <div class="main-title">Nick's Website Creations</div>
-    <div class="sub-title">NWC</div>
+  <h1 class="header">Kayla &amp; Dustin</h1>
+
+  <p class="desc">
+    We warmly invite you to join us in celebrating our wedding day. Please kindly RSVP by filling out the form below. We look forward to sharing this special occasion with you.
+  </p>
+
+  <div class="rsvp-before">Please RSVP before...</div>
+  <div class="countdown-container">
+    <div class="countdown" id="countdown">
+      <span id="days">--</span> days
+      <span id="hours">--</span> hours
+      <span id="minutes">--</span> minutes
+      <span id="seconds">--</span> seconds
+    </div>
+    <div style="font-size: 0.9rem; color: #999; margin-top: 4px;">
+      (Wedding: Thursday, April 2, 2026)
+    </div>
   </div>
 
-  <div class="content-container">
-    <div class="description">
-      Since 2023, I have been deeply passionate about crafting websites that not only look great but also provide seamless user experiences. 
-      My journey began with the fundamentals of HTML and CSS, building simple static pages to understand the core principles of web design. 
-      Month by month, as I explored new programming languages and frameworks like JavaScript, React, and PHP, my skills have grown exponentially.
-
-      With every new language I learn, my websites become more dynamic, interactive, and efficient. I constantly challenge myself to stay updated 
-      with the latest web development trends and best practices, ensuring that the solutions I provide are modern, fast, and scalable.
-
-      I specialize in creating websites tailored to your unique needs — whether you’re an individual looking for a personal portfolio, a small business 
-      aiming to establish an online presence, or a startup requiring a fully customized web application. I believe that great websites don’t have to 
-      break the bank, which is why I offer my services at affordable rates without compromising quality.
-
-      My process includes clear communication, understanding your goals, and delivering a final product that you can be proud of. From responsive design 
-      that looks perfect on any device to SEO-friendly structures that help you get noticed, I cover all the essentials.
-
-      If you’re interested in having a professional, reliable website built with care and expertise, feel free to reach out. I’m excited to help bring 
-      your ideas to life on the web — all at a small fee that fits your budget.
+  <div class="form-container">
+    <form id="rsvp-form" action="https://formsubmit.co/kaylablackledge1@gmail.com" method="POST" novalidate>
+      <input type="text" name="first_name" required placeholder="First Name" />
+      <input type="text" name="last_name" required placeholder="Last Name" />
+      <input type="text" name="address" required placeholder="Address" />
+      <input type="email" name="email" required placeholder="Email" />
+      <input type="tel" name="phone_number" required placeholder="Phone Number" />
+      <input type="text" name="plus_one" placeholder="Plus One's Full Name (if any)" />
+      <button type="submit">RSVP</button>
+    </form>
+    <div class="submit-message" id="submit-message" aria-live="polite" style="display:none;">
+      Thank you for your RSVP. We have received your response.
     </div>
+  </div>
 
-    <div class="contact-section">
-      <h2>Contact Me</h2>
-      <p>Let's discuss your website needs and how I can help you grow online:</p>
-      <a href="mailto:n1ckswebs1tecreati1ons@gmail.com" class="gmail-btn">Email via Gmail</a>
+  <!-- Divider and Promotional Section -->
+  <hr class="promo-divider" />
+  <div class="promo-flat">
+    <div class="promo-flat-title">Do you want a website?</div>
+    <div class="promo-flat-desc">Contact me with anything you have in mind for a website!</div>
+    <div class="promo-flat-row">
+      <a class="promo-link" href="https://nickswebcrafts.github.io/home/">&copy; Nicks WebCraft</a>
+      <a class="promo-link" href="learn-more">Learn More</a>
     </div>
   </div>
 
   <script>
-    // JavaScript function to handle back navigation
-    function goBack() {
-      window.history.back();
+    // Countdown timer
+    const weddingDate = new Date('2026-04-02T00:00:00');
+    const daysEl = document.getElementById('days');
+    const hoursEl = document.getElementById('hours');
+    const minutesEl = document.getElementById('minutes');
+    const secondsEl = document.getElementById('seconds');
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate - now;
+      if (diff <= 0) {
+        document.getElementById('countdown').textContent = "It's the big day!";
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      daysEl.textContent = days;
+      hoursEl.textContent = hours.toString().padStart(2, '0');
+      minutesEl.textContent = minutes.toString().padStart(2, '0');
+      secondsEl.textContent = seconds.toString().padStart(2, '0');
     }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Floating emoji random float animation
+    const emojis = document.querySelectorAll('.floating-emoji');
+    emojis.forEach((emoji) => {
+      let posX = Math.random() * 90 + 5; // percent
+      let posY = Math.random() * 80 + 10; // percent
+      emoji.style.left = posX + '%';
+      emoji.style.top = posY + '%';
+      let velocityX = (Math.random() * 0.12 + 0.04) * (Math.random() < 0.5 ? 1 : -1);
+      let velocityY = (Math.random() * 0.09 + 0.03) * (Math.random() < 0.5 ? 1 : -1);
+      function animate() {
+        posX += velocityX;
+        posY += velocityY;
+        if (posX > 105) posX = -10;
+        else if (posX < -10) posX = 105;
+        if (posY > 95) posY = 5;
+        else if (posY < 5) posY = 95;
+        emoji.style.left = posX + '%';
+        emoji.style.top = posY + '%';
+        requestAnimationFrame(animate);
+      }
+      animate();
+    });
+
+    // Handle form submission without redirect
+    const form = document.getElementById('rsvp-form');
+    const submitMessage = document.getElementById('submit-message');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      const formData = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          submitMessage.style.display = 'block';
+          form.style.display = 'none';
+        } else {
+          alert('There was a problem submitting your RSVP. Please try again later.');
+        }
+      } catch (error) {
+        alert('There was a problem submitting your RSVP. Please check your internet connection and try again.');
+      }
+    });
   </script>
 </body>
 </html>
